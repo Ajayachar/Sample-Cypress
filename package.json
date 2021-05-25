@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "initial mycrm script",
   "main": "index.js",
-  "dependencies": {
-    "cypress": "^7.2.0"
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^7.4.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
