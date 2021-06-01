@@ -1,25 +1,10 @@
 # This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 
-executors:
-  Docker:
+jobs:
+  test:
+    working_directory: /app
     docker: 
       - image: cypress/included
-
-commands:
-  Run Tests:
-    steps: 
-      - run: WORKDIR /app
-      
-            # dependencies will be installed only if the package files change
-            COPY package.json .
-            COPY package-lock.json .
-            COPY reporterOptions.json .
-            COPY cypress.json .
-
-            RUN npx cypress verify
-
-            COPY cypress cypress
-            COPY cypress.json .
-
-            RUN npx cypress run cy
+    steps:
+      - run : npx cypress run
