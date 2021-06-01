@@ -26,5 +26,6 @@ workflows:
             - cypress/install
           record: false
           parallel: true
-          parallelism: 2
-          
+          parallelism: 4
+      - store_test_results:
+          path: test-result
