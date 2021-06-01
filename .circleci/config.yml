@@ -1,15 +1,28 @@
 # This config is equivalent to both the '.circleci/extended/orb-free.yml' and the base '.circleci/config.yml'
 version: 2.1
 
+orbs:
+  cypress: cypress-io/cypress@1
+
 jobs:
-  test:
-    working_directory: /cypress
+  build:
     docker: 
       - image: cypress/included:3.4.0
+    working_directory: ~/app
     steps:
-      - run : npx cypress run
-
-workflows:
-   test:
-    jobs:
-      - test
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+            - v1-deps-{{ .Branch }}
+            - v1-deps
+      - run:
+          name: Install Dependencies
+          command: npm ci
+      - save_cache:
+          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+          # cache NPM modules and the folder with the Cypress binary
+          paths:
+            - ~/.npm
+            - ~/.cache
+      - run: $(npm bin)/cypress run --record --key <record_key>
