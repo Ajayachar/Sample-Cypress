@@ -24,7 +24,7 @@ workflows:
       - cypress/run:
           requires:
             - cypress/install
-          record: true
+          record: false
           parallel: true
           parallelism: 3
           group: 3x
