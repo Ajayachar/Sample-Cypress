@@ -26,5 +26,6 @@ workflows:
             - cypress/install
           record: false
           parallel: true
-          parallelism: 3
-          group: 3x
+          parallelism: 2
+          group: 'all tests'
+          ci-build-id: 'testing-commit-${CIRCLE_SHA1}'
