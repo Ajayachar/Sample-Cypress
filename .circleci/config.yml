@@ -27,5 +27,9 @@ workflows:
           record: false
           parallel: true
           parallelism: 4
-      - store_test_results:
-          path: test-result
+          post-steps:
+            - store_test_results:
+                path: cypress/results
+                path: test-results
+                
+
