@@ -23,5 +23,5 @@ workflows:
       - cypress/run:
            record: true
            parallel: true
-           parallelism: 4
+           parallelism: 3
 
