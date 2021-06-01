@@ -8,3 +8,8 @@ jobs:
       - image: cypress/included
     steps:
       - run : npx cypress run
+
+workflows:
+   test:
+    jobs:
+      - test
