@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+    cypress:
+      image: cypress/included
+      build:
+        context: .
+        dockerfile: Dockerfile
+      container_name: cypress
+      command: npx cypress run cy
+      volumes:
+        - ./cypress:/app/cypress
+        - ./cypress.json:/app/cypress.json
+    #   privileged: true
+    #   ipc: host
+    #   shm_size: 1024M  
