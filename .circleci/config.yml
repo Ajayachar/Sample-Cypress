@@ -29,7 +29,4 @@ workflows:
           parallelism: 4
           post-steps:
             - store_test_results:
-                path: cypress/results
                 path: test-results
-                
-
