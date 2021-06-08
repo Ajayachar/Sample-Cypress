@@ -22,6 +22,7 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
+          command: npx cypress run -- ${UserName} --${Password}
           requires:
             - cypress/install
           record: false
@@ -30,4 +31,4 @@ workflows:
           # post-steps:
           #   - store_test_results:
           #       path: /cypress/screenshots
-          environment: UserName, Password
+        
