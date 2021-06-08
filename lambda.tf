@@ -11,16 +11,16 @@ resource "aws_s3_bucket" "cypress_lambda" {
 
 data "archive_file" "lambda" {
   type        = "zip"
-  source_dir  = "lambda/"
-  output_path = "lambda.zip"
+  source_dir  = "MYCRM/"
+  output_path = "MYCRM.zip"
 }
 
 resource "aws_s3_bucket_object" "lambda" {
   bucket = "${aws_s3_bucket.cypress_lambda.id}"
 
-  key    = "lambda.zip"
+  key    = "MYCRM.zip"
   source = "${data.archive_file.lambda.output_path}"
-  etag   = "${md5(file("lambda.zip"))}"
+  etag   = "${md5(file("MYCRM.zip"))}"
 }
 
 resource "aws_lambda_function" "cypress_runner" {

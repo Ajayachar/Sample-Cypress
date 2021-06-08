@@ -16,7 +16,7 @@
 
 version: 2.1
 orbs:
-  cypress: cypress-io/cypress@1.0.1
+  cypress: cypress-io/cypress@1.28.0
 workflows:
   build:
     jobs:
@@ -27,6 +27,8 @@ workflows:
           record: false
           parallel: true
           parallelism: 4
-          post-steps:
-            - store_test_results:
-                path: test-results
+          # post-steps:
+          #   - store_test_results:
+          #       path: /cypress/screenshots
+          UserName: ${UserName}
+          Password: ${Password}
