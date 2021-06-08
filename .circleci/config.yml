@@ -30,6 +30,4 @@ workflows:
           # post-steps:
           #   - store_test_results:
           #       path: /cypress/screenshots
-          environment:
-            - UserName: ${UserName}
-            - Password: ${Password}
+          environment: UserName, Password
