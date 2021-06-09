@@ -22,15 +22,19 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
-          environment:
-            UserName: ${UserName}
-            Password: ${Password}
+          # context: Test_Credentials
           requires:
             - cypress/install
           record: false
           parallel: true
-          parallelism: 1
+          parallelism: 4
+          command: 
+            echo $UserName
+            echo $Password
+            npx cypress run --env Username=$UserName, Password=$Password 
           # post-steps:
           #   - store_test_results:
           #       path: /cypress/screenshots
-        
+          # environment:
+          #   - UserName: ${UserName}
+          #   - Password: ${Password}
