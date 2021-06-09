@@ -22,11 +22,11 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
-          # context: Test_Credentials
-          command: 
-            echo $UserName
-            echo $Password
-            npx cypress run --env Username=$UserName, Password=$Password 
+          context: Test_Credentials
+          # command: 
+          #   echo $UserName
+          #   echo $Password
+          #   npx cypress run --env Username=$UserName, Password=$Password 
           requires:
             - cypress/install
           record: false
