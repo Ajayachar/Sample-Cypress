@@ -22,8 +22,9 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
-          UserName: $UserName
-          Password: $Password
+          environment:
+            UserName: $UserName
+            Password: $Password
           requires:
             - cypress/install
           record: false
