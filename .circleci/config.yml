@@ -23,8 +23,8 @@ workflows:
       - cypress/install
       - cypress/run:
           environment:
-            UserName: $UserName
-            Password: $Password
+            UserName: ${UserName}
+            Password: ${Password}
           requires:
             - cypress/install
           record: false
