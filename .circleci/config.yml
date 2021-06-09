@@ -18,7 +18,6 @@ version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.28.0
 workflows:
-
   build:
     jobs:
       - cypress/install
@@ -30,3 +29,4 @@ workflows:
           record: false
           parallel: true
           parallelism: 1
+          
