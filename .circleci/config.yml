@@ -22,7 +22,8 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
-          command: npx cypress run -- ${UserName} --${Password}
+          UserName: $UserName
+          Password: $Password
           requires:
             - cypress/install
           record: false
