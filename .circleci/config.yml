@@ -23,6 +23,7 @@ workflows:
       - cypress/install
       - cypress/run:
           context: Test_Credentials
+          start: 'npm start'
           # command: 
           #   echo $UserName
           #   echo $Password
