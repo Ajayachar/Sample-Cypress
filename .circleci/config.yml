@@ -23,7 +23,7 @@ workflows:
     jobs:
       - cypress/install
       - cypress/run:
-          context: Test_Credentials
+          # context: Test_Credentials
           command: npx cypress run --env Username=$UserName,Password=$Password 
           requires:
             - cypress/install
