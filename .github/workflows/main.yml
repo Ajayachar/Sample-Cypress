@@ -12,10 +12,14 @@ jobs:
 
       - name: Checkout Dev Repo
         uses: actions/checkout@v2
+        with:
+          repository: my-org/my-tools
+          path: my-tools
+
+      - name: Setup Application under test
+        run: docker-compose -f my-tools/docker-compose.yml up -d
 
       - name: Run test
-        uses: cypress-io/github-action@v2.3.6
+        uses: cypress-io/github-action@v2
         with:
-          build: npm run build
-          start: npm start
-
+          env: UserName=${{Secrets.USERNAME}},Password=${{Secrets.PASSWORD}}
