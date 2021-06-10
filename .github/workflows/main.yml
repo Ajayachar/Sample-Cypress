@@ -11,11 +11,14 @@ jobs:
 
       - name: Checkout Dev Repo
         uses: actions/checkout@v2
+        with: 
+          env: 
+            UserName=${{secrets.USERNAME}}
+            Password=${{secrets.PASSWORD}}
 
       - name: Run test
         uses: cypress-io/github-action@v2
-        run: 
-        echo ${{secrets.USERNAME}}
         with:
-          command: npx cypress run --env UserName=${{secrets.USERNAME}},Password=${{secrets.PASSWORD}}
+          command: npx cypress run --env UserName,Password
+
 
