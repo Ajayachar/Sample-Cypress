@@ -29,4 +29,12 @@ workflows:
           record: false
           parallel: true
           parallelism: 1
+  nightly:
+    triggers:
+      - schedule:
+          cron: "0 13 * * 1-5"
+          filters:
+            branches:
+              only:
+                - master
           
