@@ -7,17 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install dependencies
-        run: |
-          npm install
+        run: npm install
 
       - name: Checkout Dev Repo
         uses: actions/checkout@v2
-        with:
-          repository: my-org/my-tools
-          path: my-tools
-
-      - name: Setup Application under test
-        run: docker-compose -f my-tools/docker-compose.yml up -d
 
       - name: Run test
         uses: cypress-io/github-action@v2
