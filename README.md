@@ -1,6 +1,7 @@
 # Sample-Cypress
 
-Cypress.json has environment variables {
+Cypress.json has environment variables 
+{
     "projectId": "",
 
     "env":{
@@ -10,9 +11,9 @@ Cypress.json has environment variables {
 
 }
 
-run locally using as-a command with environment variables(Create a file in your user's home directory .as-a.ini and add [SIT] and crednetials)
+run locally using as-a command with environment variables
 
-    npx as-a SIT cypress run
+    npx cypress run --env UserName='ajayachar@gmail.com',Password='Test123'
     
 run on locally installed docker
 
