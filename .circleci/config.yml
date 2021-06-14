@@ -38,5 +38,10 @@ workflows:
               only:
                 - master
     jobs:
-      - cypress/run
-
+      - cypress/install
+      - cypress/run:
+          # context: Test_Credentials
+          command: npx cypress run --env Username=$UserName,Password=$Password 
+          record: false
+          parallel: true
+          parallelism: 1
