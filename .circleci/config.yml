@@ -19,8 +19,9 @@ orbs:
   cypress: cypress-io/cypress@1.28.0
 
 jobs:
-  build-run:
+  build:
     - cypress/install
+  run:
     - cypress/run:
       # context: Test_Credentials
       command: npx cypress run --env Username=$UserName,Password=$Password 
@@ -33,6 +34,9 @@ jobs:
 
 workflows:
   version: 2
+  commit-workflow:
+    jobs:
+      - build
   nightly-job:
     triggers:
       - schedule:
@@ -42,7 +46,8 @@ workflows:
             only:
               - master
     job:
-      - build-run
+      - build
+      - run
 
       
 
