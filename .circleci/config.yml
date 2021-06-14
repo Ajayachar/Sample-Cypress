@@ -19,11 +19,13 @@ orbs:
   cypress: cypress-io/cypress@1.28.0
 workflows:
   version: 2
-  # build:
-  nightly:
+  commit-workflow:
+    jobs: 
+      - build
+  nightly-job:
     triggers:
     - schedule:
-        cron: "0 12 * * 1-5"
+        cron: "0 * * * *"
         filters:
           branches:
             only:
@@ -38,5 +40,4 @@ workflows:
           record: false
           parallel: true
           parallelism: 1
-
           
