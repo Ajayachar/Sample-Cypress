@@ -17,24 +17,32 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@1.28.0
+
+jobs:
+  build-run:
+    - cypress/install
+    - cypress/run:
+      # context: Test_Credentials
+      command: npx cypress run --env Username=$UserName,Password=$Password 
+      requires:
+        - cypress/install
+      record: false
+      parallel: true
+      parallelism: 1
+
+
 workflows:
   version: 2
   nightly-job:
     triggers:
-    - schedule:
+      - schedule:
         cron: "0 * * * *"
         filters:
           branches:
             only:
               - master
-    jobs:
-      - cypress/install
-      - cypress/run:
-          # context: Test_Credentials
-          command: npx cypress run --env Username=$UserName,Password=$Password 
-          requires:
-            - cypress/install
-          record: false
-          parallel: true
-          parallelism: 1
+    job:
+      - build-run
+
+      
 
