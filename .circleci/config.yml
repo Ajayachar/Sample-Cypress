@@ -41,7 +41,9 @@ workflows:
       - cypress/install
       - cypress/run:
           # context: Test_Credentials
-          command: npx cypress run --env Username=$UserName,Password=$Password 
+          command: npx cypress run --env Username=$UserName,Password=$Password
+          requires:
+            - cypress/install
           record: false
           parallel: true
           parallelism: 1
