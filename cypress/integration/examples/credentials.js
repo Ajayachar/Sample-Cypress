@@ -1,9 +1,6 @@
 
 /// <reference types="cypress" />
 
-const username = Cypress.env('UserName')
-const password = Cypress.env('Password')
-
 context('Actions', () => {
   beforeEach(() => {
     cy.visit('https://example.cypress.io/commands/actions')
@@ -15,10 +12,10 @@ context('Actions', () => {
   it('.type() - type into a DOM element', () => {
     // https://on.cypress.io/type
     cy.get('.action-email')
-      .type(username).should('have.value', 'ajayachar@gmail.com')
+      .type(Cypress.env('UserName')).should('have.value', 'ajayachar@gmail.com')
 
     cy.get('.action-email')
-    .type(password).should('have.value', 'Test123')
+    .type(Cypress.env('Password')).should('have.value', 'Test123')
   })
 
 })
