@@ -1,4 +1,8 @@
 {
-    "projectId": "ux5pc5"
+    "projectId": "ux5pc5",
 
+    "env":{
+        "UserName": "",
+        "Password": ""
+    }
 }
