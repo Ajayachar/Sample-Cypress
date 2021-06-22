@@ -10,12 +10,13 @@ context('Actions', () => {
   // https://on.cypress.io/interacting-with-elements
 
   it('.type() - type into a DOM element', () => {
+    
     // https://on.cypress.io/type
     cy.get('.action-email')
-      .type(Cypress.env('UserName')).should('have.value', 'ajayachar@gmail.com')
+      .type(Cypress.env("UserName")).should('have.value', 'ajayachar@gmail.com')
 
     cy.get('.action-email')
-    .type(Cypress.env('Password')).should('have.value', 'Test123')
+    .type(Cypress.env("Password")).should('have.value', 'Test123')
   })
 
 })
