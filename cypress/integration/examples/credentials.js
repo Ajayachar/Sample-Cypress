@@ -13,10 +13,10 @@ context('Actions', () => {
     
     // https://on.cypress.io/type
     cy.get('.action-email')
-      .type(Cypress.env("UserName")).should('have.value', 'ajayachar@gmail.com')
+      .type(USERNAME).should('have.value', 'ajayachar@gmail.com')
 
     cy.get('.action-email')
-    .type(Cypress.env("Password")).should('have.value', 'Test123')
+    .type(PASSWORD).should('have.value', 'Test123')
   })
 
 })
