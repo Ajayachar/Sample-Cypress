@@ -1,6 +1,10 @@
 
 /// <reference types="cypress" />
 
+const { USERNAME } = require("../../config/config")
+
+import {USERNAME, PASSWORD} from "cypress\config\config.ts"
+
 context('Actions', () => {
   beforeEach(() => {
     cy.visit('https://example.cypress.io/commands/actions')
