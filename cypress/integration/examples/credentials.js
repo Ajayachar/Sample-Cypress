@@ -1,25 +1,11 @@
 
 /// <reference types="cypress" />
 
-var UserName = Cypress.env('UserName')
-var Password = Cypress.env('Password')
+it('logs in using env variables', () => {
+  const username = Cypress.env('UserName')
+  const password = Cypress.env('Password')
 
-context('Actions', () => {
-  beforeEach(() => {
-    cy.visit('https://example.cypress.io/commands/actions')
-  })
-
-  cy.pause
-  // https://on.cypress.io/interacting-with-elements
-
-  it('.type() - type into a DOM element', () => {
-    
-    // https://on.cypress.io/type
-    cy.get('.action-email')
-      .type(UserName).should('have.value', 'ajayachar@gmail.com')
-
-    cy.get('.action-email').clear
-    .type(Password).should('have.value', 'Test123')
-  })
-
+  expect(username).to.equal('ajayachar@gmail.com')
+  expect(password).to.equal('Test123')
+  
 })
