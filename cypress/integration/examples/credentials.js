@@ -1,9 +1,8 @@
 
 /// <reference types="cypress" />
 
-const { USERNAME } = require("../../config/config")
-
-import {USERNAME, PASSWORD} from "cypress\config\config.ts"
+var UserName = Cypress.env('UserName')
+var Password = Cypress.env('Password')
 
 context('Actions', () => {
   beforeEach(() => {
@@ -17,10 +16,10 @@ context('Actions', () => {
     
     // https://on.cypress.io/type
     cy.get('.action-email')
-      .type(USERNAME).should('have.value', 'ajayachar@gmail.com')
+      .type(UserName).should('have.value', 'ajayachar@gmail.com')
 
-    cy.get('.action-email')
-    .type(PASSWORD).should('have.value', 'Test123')
+    cy.get('.action-email').clear
+    .type(Password).should('have.value', 'Test123')
   })
 
 })
