@@ -15,7 +15,7 @@ jobs:
       - name: Run test
         uses: cypress-io/github-action@v2
         with:
-          command: npx cypress run --env UserName=$USERNAME,Password=$PASSWORD
+          command: npx cypress run --env UserName=${{secrets.USERNAME}},Password=${{secrets.PASSWORD}}
         env: 
             UserName: ${{secrets.USERNAME}}
             Password: ${{secrets.PASSWORD}}
